@@ -121,6 +121,6 @@ adb push models/gpt-2-117M/ggml-model.bin /data/local/tmp/models/
 adb shell
 cd /data/local/tmp
 export LD_LIBRARY_PATH=/data/local/tmp
-./bin/gpt-2-backend -m models/ggml-model.bin -p "this is an example"
+./bin/gpt-2-backend -m models/ggml-model-q8_0.bin -p "How is Boston"
 ```
 
