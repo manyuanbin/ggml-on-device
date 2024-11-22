@@ -33,11 +33,48 @@ cmake --build . --config Release -j 8
 ```
 
 ## GPT-2 inference
+>**Note**: The throughput on my laptop is quite good, achieving <u>**_8.04_**</u> ms per token. 
 
 ```bash
 # run the GPT-2 small 117M model with q8
-../apps/gpt-2/download-ggml-model.sh 117M
-./bin/gpt-2-backend -m models/gpt-2-117M/ggml-model-q8_0.bin -p "This is an example"
+(base) yuanbin.myb@macbookpro build % ./bin/gpt-2-backend -m ../../ggml-on-device/build/models/gpt-2-117M/ggml-model-q8_0.bin -p "How is Boston"
+main: seed = 1732260396
+gpt2_model_load: loading model from '../../ggml-on-device/build/models/gpt-2-117M/ggml-model-q8_0.bin'
+gpt2_model_load: n_vocab = 50257
+gpt2_model_load: n_ctx   = 1024
+gpt2_model_load: n_embd  = 768
+gpt2_model_load: n_head  = 12
+gpt2_model_load: n_layer = 12
+gpt2_model_load: ftype   = 2007
+gpt2_model_load: qntvr   = 2
+gpt2_model_load: using CPU backend
+gpt2_model_load: ggml tensor size    = 336 bytes
+gpt2_model_load: backend buffer size = 167.75 MB
+gpt2_model_load: memory size =   144.00 MB, n_mem = 24576
+gpt2_model_load: model size  =   128.64 MB
+extract_tests_from_file : No test file found.
+test_gpt_tokenizer : 0 tests failed out of 0 tests.
+main: compute buffer size: 9.47 MB
+main: prompt: 'How is Boston'
+main: number of tokens in prompt = 3, first 8 tokens: 2437 318 6182 
+
+How is Boston?"
+
+"Boston, you can do a lot more."
+
+The question came in the midst of a series of tweets from the Boston Globe that were both funny and in need of a response. One was from Matt Zoller Seitz:
+
+"What's up with Boston? You're here, aren't you? I know I should give you a break, because I love you. You're doing what you do."
+
+Another, a direct quote from a New York Times op-ed by Boston Mayor Marty Walsh, was from another, more subdued source:
+
+"I don't understand. You are right. We are here because of what you are doing. You are the best that you can be. You are a true patriot. You are a true human being. This is not about who you are. This is about who we are. This is not just a place. This is about all of us. This is a city that has been built on the
+
+main:     load time =   210.87 ms
+main:   sample time =    32.18 ms
+main:  predict time =  1623.66 ms / 8.04 ms per token
+main:    total time =  1871.03 ms
+
 ```
 
 ## Model Quantization
