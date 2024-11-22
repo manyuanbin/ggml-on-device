@@ -42,7 +42,7 @@ cmake --build . --config Release -j 8
 
 ## Model Quantization
 
-**How to quantize model? Come to [Yuanbin](mailto:ybinman@bu.edu)!**
+**How do you quantize a model? Reach out to  [Yuanbin](mailto:ybinman@bu.edu)!**
 
 ```
 240M	models/gpt-2-117M/ggml-model-f16.bin
