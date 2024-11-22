@@ -32,7 +32,7 @@ cmake ..
 cmake --build . --config Release -j 8
 ```
 
-## GPT inference (example)
+## GPT-2 inference
 
 ```bash
 # run the GPT-2 small 117M model with q8
