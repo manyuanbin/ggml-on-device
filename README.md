@@ -1,6 +1,6 @@
-# nano ggml (Based on ggml)
+# Nano ggml
 
-Tensor library for machine learning
+**This is Nano ggml, a lightweight framework designed for mobile, watches, and IoT devices. It’s based on GGML, with minimal code and <u>_no third-party libraries._**
 
 - [Introduction to ggml](https://huggingface.co/blog/introduction-to-ggml)
 - [The GGUF file format](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md)
