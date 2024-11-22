@@ -35,10 +35,24 @@ cmake --build . --config Release -j 8
 ## GPT inference (example)
 
 ```bash
-# run the GPT-2 small 117M model
+# run the GPT-2 small 117M model with q8
 ../apps/gpt-2/download-ggml-model.sh 117M
-./bin/gpt-2-backend -m models/gpt-2-117M/ggml-model.bin -p "This is an example"
+./bin/gpt-2-backend -m models/gpt-2-117M/ggml-model-q8_0.bin -p "This is an example"
 ```
+
+## Model Quantization
+
+**How to quantize model? Come to [Yuanbin](mailto:ybinman@bu.edu)!**
+
+```
+240M	models/gpt-2-117M/ggml-model-f16.bin
+ 70M	models/gpt-2-117M/ggml-model-q4_0.bin
+ 78M	models/gpt-2-117M/ggml-model-q4_1.bin
+ 70M	models/gpt-2-117M/ggml-model-q4_k.bin
+129M	models/gpt-2-117M/ggml-model-q8_0.bin
+240M	models/gpt-2-117M/ggml-model.bin
+```
+
 
 ## Compiling for Android
 
