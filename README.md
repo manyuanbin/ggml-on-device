@@ -1,30 +1,25 @@
-# ggml
-
-[Roadmap](https://github.com/users/ggerganov/projects/7) / [Manifesto](https://github.com/ggerganov/llama.cpp/discussions/205)
+# nano ggml (Based on ggml)
 
 Tensor library for machine learning
 
-Document for ggml: (https://huggingface.co/blog/introduction-to-ggml)
-
-***Note that this project is under active development. \
-Some of the development is currently happening in the [llama.cpp](https://github.com/ggerganov/llama.cpp) and [whisper.cpp](https://github.com/ggerganov/whisper.cpp) repos***
+- [Introduction to ggml](https://huggingface.co/blog/introduction-to-ggml)
+- [The GGUF file format](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md)
 
 
 ## Features
 
-- Low-level cross-platform implementation
+- **_No third-party dependencies_**
 - Integer quantization support
 - Broad hardware support
 - Automatic differentiation
 - ADAM and L-BFGS optimizers
-- No third-party dependencies
 - Zero memory allocations during runtime
 
 ## Build
 
 ```bash
-git clone https://github.com/ggerganov/ggml
-cd ggml
+git clone git@github.com:manyuanbin/ggml-on-device.git
+cd ggml-on-device
 
 # install python dependencies in a virtual environment
 python3.10 -m venv .venv
@@ -43,33 +38,6 @@ cmake --build . --config Release -j 8
 # run the GPT-2 small 117M model
 ../examples/gpt-2/download-ggml-model.sh 117M
 ./bin/gpt-2-backend -m models/gpt-2-117M/ggml-model.bin -p "This is an example"
-```
-
-For more information, checkout the corresponding programs in the [examples](examples) folder.
-
-## Using CUDA
-
-```bash
-# fix the path to point to your CUDA compiler
-cmake -DGGML_CUDA=ON -DCMAKE_CUDA_COMPILER=/usr/local/cuda-12.1/bin/nvcc ..
-```
-
-## Using hipBLAS
-
-```bash
-cmake -DCMAKE_C_COMPILER="$(hipconfig -l)/clang" -DCMAKE_CXX_COMPILER="$(hipconfig -l)/clang++" -DGGML_HIPBLAS=ON
-```
-
-## Using SYCL
-
-```bash
-# linux
-source /opt/intel/oneapi/setvars.sh
-cmake -G "Ninja" -DCMAKE_C_COMPILER=icx -DCMAKE_CXX_COMPILER=icpx -DGGML_SYCL=ON ..
-
-# windows
-"C:\Program Files (x86)\Intel\oneAPI\setvars.bat"
-cmake -G "Ninja" -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_COMPILER=icx -DGGML_SYCL=ON ..
 ```
 
 ## Compiling for Android
@@ -105,7 +73,3 @@ export LD_LIBRARY_PATH=/data/local/tmp
 ./bin/gpt-2-backend -m models/ggml-model.bin -p "this is an example"
 ```
 
-## Resources
-
-- [Introduction to ggml](https://huggingface.co/blog/introduction-to-ggml)
-- [The GGUF file format](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md)
