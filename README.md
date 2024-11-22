@@ -36,7 +36,7 @@ cmake --build . --config Release -j 8
 
 ```bash
 # run the GPT-2 small 117M model
-../examples/gpt-2/download-ggml-model.sh 117M
+../apps/gpt-2/download-ggml-model.sh 117M
 ./bin/gpt-2-backend -m models/gpt-2-117M/ggml-model.bin -p "This is an example"
 ```
 
